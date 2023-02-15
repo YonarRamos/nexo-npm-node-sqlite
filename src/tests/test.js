@@ -1,11 +1,5 @@
 
-const mongo = require("../index.js");
-let db;
-mongo.url('localhost:27017');
-mongo.credentials('admin', 'admin');
-mongo.schema('node-base');
+const sqlite = require("../index.js");
+sqlite.url('./db.sqlite3');
 
-mongo.initialize().then(async (r) => {
-        console.log(await r.col('users').find({name: 'JROGE'}).toArray())
-    }
-)
+const res = sqlite.initialize()
