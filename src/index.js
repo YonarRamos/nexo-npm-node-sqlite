@@ -29,12 +29,11 @@ function initialize()
          useNullAsDefault: true,
         }
     
-    return knex(config)
-/*           .then((knex) => {
-            this.client = knex
-            onConnected?.()
-        })
-        .catch((error) => { onFailure?.(error); return error; }) */
+    this.client = knex(config)
+
+    this.client.client.config
+    ? onConnected?.()
+    : onFailure?.()
 }
 
 module.exports = {

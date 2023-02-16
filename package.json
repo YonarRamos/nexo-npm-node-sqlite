@@ -4,16 +4,13 @@
   "description": "nexo-node",
   "main": "index.js",
   "scripts": {
-    "test":"node src/tests/test.js"
+    "test": "node src/tests/test.js"
   },
   "author": "ismx",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "express": "^4.17.1",
     "knex": "^2.4.2",
-    "mongodb": "^4.2.0",
-    "node-fetch": "^3.1.0",
+    "nexo-npm-node-logger": "git+https://otd.ibl-inetum.services/bitbucket/scm/nexo-npm/nexo-npm-node-logger.git",
     "sqlite3": "^5.1.4"
   },
   "publishConfig": {
