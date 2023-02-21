@@ -2,9 +2,11 @@
   "name": "nexo-npm-node-sqlite",
   "version": "1.0.17",
   "description": "nexo-node",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "ts-node src/tests/test.ts"
+    "transpile": "babel src -d dist/src -x \".ts\" && babel index.ts --out-file dist/index.js",
+    "test:ts": "ts-node src/tests/test.ts",
+    "test": "npm run transpile && node ./dist/src/tests/test.js"
   },
   "author": "ismx",
   "license": "MIT",
@@ -21,5 +23,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ismx-node/nexo.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }
