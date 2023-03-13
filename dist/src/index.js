@@ -30,7 +30,7 @@ function setMigrationsUrl(url) {
   migrationsUrl = url;
 }
 var seedsUrl;
-function setSeedssUrl(url) {
+function setSeedsUrl(url) {
   seedsUrl = url;
 }
 function initialize() {
@@ -53,7 +53,7 @@ function initialize() {
 module.exports = {
   setConnection: setConnection,
   setMigrationsUrl: setMigrationsUrl,
-  setSeedssUrl: setSeedssUrl,
+  setSeedsUrl: setSeedsUrl,
   onConnected: setOnConnected,
   onFailure: setOnFailure,
   initialize: initialize,

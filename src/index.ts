@@ -28,7 +28,7 @@ function setMigrationsUrl (url:string){
 }
 
 let seedsUrl:string
-function setSeedssUrl (url:string){
+function setSeedsUrl (url:string){
     seedsUrl = url
 }
 
@@ -53,7 +53,7 @@ function initialize(this: typeof client) {
 module.exports = {
     setConnection,
     setMigrationsUrl,
-    setSeedssUrl,
+    setSeedsUrl,
     onConnected: setOnConnected,
     onFailure: setOnFailure,
     initialize,
