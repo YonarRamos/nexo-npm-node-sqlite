@@ -1,7 +1,7 @@
 const sqlite = require("../index")
 const logger = require('nexo-npm-node-logger')
 
-sqlite.url('./test.sqlite3')
+sqlite.setConnection({ filename: './test.sqlite3'})
 sqlite.onConnected(async () => {
     logger.i("Connected to the database");
 });
