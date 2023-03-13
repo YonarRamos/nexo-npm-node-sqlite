@@ -17,17 +17,31 @@ function setOnFailure(callback:any) {
     onFailure = callback;
 };
 
-function initialize(this: typeof client)
-{
-    if (!url) throw new Error("url not defined");
+let connection:object
+function setConnection (values:object){
+    connection = values
+}
+
+let migrationsUrl:string
+function setMigrationsUrl (url:string){
+    migrationsUrl = url
+}
+
+let seedsUrl:string
+function setSeedssUrl (url:string){
+    seedsUrl = url
+}
+
+function initialize(this: typeof client) {
+    if (!connection) throw new Error("connection not defined")
 
     const config = {
-            client: 'sqlite3',
-            connection: {
-                filename: url
-            },
-         useNullAsDefault: true,
-        }
+        client: 'sqlite3',
+        connection: {...connection},
+        migrations: { directory: migrationsUrl ?? '.db/migrations' },
+        seeds: { directory: seedsUrl ?? '.db/migrations' },
+        useNullAsDefault: true,
+    }
     
     this.client = knex(config)
 
@@ -37,7 +51,9 @@ function initialize(this: typeof client)
 }
 
 module.exports = {
-    url: setUrl,
+    setConnection,
+    setMigrationsUrl,
+    setSeedssUrl,
     onConnected: setOnConnected,
     onFailure: setOnFailure,
     initialize,
